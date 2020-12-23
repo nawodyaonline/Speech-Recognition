@@ -13,8 +13,17 @@
     <title>Speech Recognition</title>
 </head>
 <body>
+    <!-- Image and text -->
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">        
+        <h1>Speech to Text</h1>
+      </a>
+    </div>
+  </nav>
+
     <div class='container' id="speechContainer">
-        <h1>Upload New File :</h1>
+        <h1>Upload New File : <small>Only add <b>.wav</b> files.</small></h1> 
         <form action="/" method="POST" enctype="multipart/form-data">
             <input type="file" name="file">
             <br>
@@ -22,12 +31,24 @@
             <input id="submit-btn" class="btn btn-primary" type="submit" value="Transcribe">
         </form>
 
-        {% if transcript != '' %}
-            <div id='speechTranscripContainer' >
-                <h1>Transcript</h1>
-                <p>{{ transcript }}</p>
+        <br>
+        <br>
+        
+        
+        <section id='transcribt'>
+            {% if transcript != '' %}
+            <h1>Transcript</h1>
+            <div class='card' id='speechTranscripContainer' >
+                
+                <div class="card-body">
+                    
+                    <p>{{ transcript }}</p>
+                </div>
+               
             </div>
-        {% endif %}
+            {% endif %}
+        </section>
+        
     </div>
 </body>
 </html>
